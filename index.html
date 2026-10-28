@@ -3,267 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eu Te Amo em Todas as Línguas do Mundo 💖</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Eu Te Amo em Todas as Línguas do Mundo ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        roseGold: '#ECC5C0',
-                        loveRed: '#E63946',
-                        deepPink: '#D81B60',
-                        darkNavy: '#0F0C20',
-                        cardDark: '#1A162B',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0710; color: #f3e8ff; overflow-x: hidden; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .glass { background: rgba(25, 15, 35, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(236, 72, 153, 0.15); }
+        .glow-heart { filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)); animation: pulseGlow 2s infinite ease-in-out; }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 25px rgba(244, 63, 94, 0.8)); }
         }
-        ::-webkit-scrollbar-track {
-            background: #0F0C20;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D81B60;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #E63946;
-        }
-        /* Floating background particles */
-        .bg-particle {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.25;
-            animation: float 8s ease-in-out infinite;
+        .floating { animation: floatParticle 6s infinite ease-in-out; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
     </style>
 </head>
-<body class="bg-darkNavy text-slate-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-deepPink selection:text-white">
+<body class="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 relative">
 
-    <!-- Ambient background glows and elements -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-deepPink/20 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-loveRed/20 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl"></div>
+    <!-- Fundo com gradientes românticos -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] h-[400px] bg-gradient-to-b from-rose-900/20 via-pink-900/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="w-full max-w-md z-10 flex flex-col items-center space-y-6">
         
-        <!-- Floating Hearts Effect -->
-        <div class="bg-particle top-[10%] left-[15%] text-pink-400 text-2xl" style="animation-delay: 0s;">❤️</div>
-        <div class="bg-particle top-[25%] left-[80%] text-rose-300 text-xl" style="animation-delay: 2s;">💖</div>
-        <div class="bg-particle top-[60%] left-[10%] text-pink-500 text-3xl" style="animation-delay: 4s;">💕</div>
-        <div class="bg-particle top-[75%] left-[85%] text-red-400 text-lg" style="animation-delay: 1s;">✨</div>
-        <div class="bg-particle top-[40%] left-[90%] text-pink-300 text-2xl" style="animation-delay: 3s;">💗</div>
-        <div class="bg-particle top-[85%] left-[20%] text-rose-400 text-2xl" style="animation-delay: 5s;">❤️</div>
-    </div>
-
-    <!-- Main Container -->
-    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col items-center">
-
-        <!-- Glowing Central Heart Animation -->
-        <div class="relative my-6 cursor-pointer group" onclick="pulseHeartAnimation()">
-            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-loveRed to-deepPink blur-2xl opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse-slow"></div>
-            <div class="relative w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-tr from-cardDark to-slate-900 rounded-full border border-pink-500/30 flex items-center justify-center shadow-2xl transition-transform duration-300 transform group-hover:scale-105">
-                <i data-lucide="heart" class="w-16 h-16 sm:w-20 sm:h-20 text-loveRed fill-loveRed drop-shadow-[0_0_15px_rgba(230,57,70,0.8)] animate-pulse"></i>
+        <!-- Ícone / Coração Animado -->
+        <div class="mt-4 relative">
+            <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="w-24 h-24 rounded-full glass flex items-center justify-center relative border border-pink-500/30 shadow-2xl">
+                <svg class="w-12 h-12 text-rose-500 glow-heart" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
             </div>
         </div>
 
-        <!-- Hero Header -->
-        <header class="text-center max-w-3xl mb-12">
-            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider text-roseGold uppercase bg-deepPink/20 border border-deepPink/30 rounded-full">
-                Para o Amor da Minha Vida
+        <!-- Cabeçalho -->
+        <div class="text-center space-y-3">
+            <span class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-pink-500/10 text-pink-300 border border-pink-500/20">
+                Para o amor da minha vida
             </span>
-            <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-100 via-roseGold to-pink-300 mb-4 leading-tight">
+            <h1 class="font-cinzel text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-200 via-rose-300 to-amber-200 bg-clip-text text-transparent">
                 Meu Amor Por Você Não Tem Fronteiras
             </h1>
-            <p class="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-                Não importa em qual lugar do mundo a gente esteja ou qual idioma seja falado... o sentimento mais puro e verdadeiro sempre vai significar a mesma coisa: <span class="text-roseGold font-medium">Eu Amo Você!</span>
+            <p class="text-sm text-pink-200/70 leading-relaxed px-2">
+                Não importa em qual lugar do mundo a gente esteja ou qual idioma seja falado... o sentimento mais puro e verdadeiro sempre vai significar a mesma coisa: <strong class="text-pink-300">Eu Amo Você!</strong>
             </p>
-        </header>
+        </div>
 
-        <!-- Personal Romantic Message Card -->
-        <section class="w-full max-w-3xl mb-12">
-            <div class="bg-gradient-to-b from-cardDark/90 to-cardDark/60 backdrop-blur-md rounded-2xl border border-pink-500/20 p-6 sm:p-8 shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-deepPink/10 rounded-bl-full pointer-events-none"></div>
-                <div class="flex items-center space-x-3 mb-4">
-                    <i data-lucide="mail-open" class="text-roseGold w-6 h-6"></i>
-                    <h2 class="font-serif text-xl sm:text-2xl font-semibold text-rose-100">Uma Carta Especial Para Você</h2>
+        <!-- Carta de Amor Expansível -->
+        <div class="w-full glass rounded-2xl p-5 shadow-xl transition-all duration-300 border border-pink-500/20">
+            <div class="flex items-center justify-between cursor-pointer" onclick="toggleCarta()">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl">💌</span>
+                    <div>
+                        <h2 class="font-cinzel font-bold text-base text-pink-100">Uma Carta Especial Para Você</h2>
+                        <p class="text-xs text-pink-300/60">Toque para ler o que sinto...</p>
+                    </div>
                 </div>
-                <div class="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed space-y-3 font-light">
-                    <p>
-                        Se você está lendo isso, é porque aproxima seu celular de um pedacinho de carinho que guardei pra você. 
-                    </p>
-                    <p id="personal-letter-extra" class="hidden transition-all duration-300">
-                        Eu queria um presente que fosse além do comum, algo que te lembrasse que meu amor por você atravessa qualquer distância, qualquer cultura e qualquer linguagem. Em qualquer universo ou forma de expressão, eu escolheria amar você todos os dias. Você é meu porto seguro, meu sorriso diário e minha pessoa favorita no mundo inteiro. ❤️
-                    </p>
-                </div>
-                <button id="toggle-letter-btn" onclick="toggleLetter()" class="mt-4 text-xs sm:text-sm text-roseGold hover:text-white font-medium flex items-center space-x-1 focus:outline-none transition-colors">
-                    <span id="letter-btn-text">Ler carta completa</span>
-                    <i data-lucide="chevron-down" id="letter-btn-icon" class="w-4 h-4 transition-transform duration-300"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- Search Bar and Region Filters -->
-        <section class="w-full mb-8 space-y-4">
-            <div class="relative max-w-xl mx-auto">
-                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
-                <input 
-                    type="text" 
-                    id="search-input"
-                    placeholder="Pesquise por idioma, continente ou palavra..." 
-                    class="w-full pl-12 pr-4 py-3.5 bg-cardDark/80 backdrop-blur-md border border-slate-700/60 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-deepPink focus:ring-1 focus:ring-deepPink transition-all shadow-lg text-sm sm:text-base"
-                    oninput="handleSearch()"
-                >
-            </div>
-
-            <!-- Region Category Buttons -->
-            <div class="flex flex-wrap justify-center gap-2 pt-2" id="region-filters">
-                <button onclick="filterRegion('all')" class="region-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-deepPink text-white transition-all shadow-md">
-                    🌍 Todos (<span id="count-all">0</span>)
-                </button>
-                <button onclick="filterRegion('Europa')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    🏰 Europa
-                </button>
-                <button onclick="filterRegion('Américas')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    🗽 Américas
-                </button>
-                <button onclick="filterRegion('Ásia')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    ⛩️ Ásia
-                </button>
-                <button onclick="filterRegion('África')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    🌍 África
-                </button>
-                <button onclick="filterRegion('Oceanias')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    🏝️ Oceania
-                </button>
-                <button onclick="filterRegion('Fictícios/Especiais')" class="region-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-cardDark text-slate-300 hover:bg-slate-800 border border-slate-700/50 transition-all">
-                    🚀 Fictícios / Geek
-                </button>
-            </div>
-        </section>
-
-        <!-- Languages Cards Grid -->
-        <section class="w-full">
-            <div id="languages-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                <!-- Cards will be populated dynamically via Javascript -->
+                <svg id="arrow-icon" class="w-5 h-5 text-pink-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
             </div>
             
-            <!-- Empty search state -->
-            <div id="no-results" class="hidden text-center py-16">
-                <i data-lucide="heart-off" class="w-12 h-12 mx-auto text-slate-500 mb-3"></i>
-                <p class="text-slate-400 text-lg">Nenhum idioma encontrado para essa busca...</p>
-                <button onclick="clearSearch()" class="mt-4 text-xs text-roseGold underline hover:text-white">Limpar busca</button>
+            <div id="carta-conteudo" class="hidden mt-4 pt-4 border-t border-pink-500/10 text-xs sm:text-sm text-pink-100/80 leading-relaxed space-y-3">
+                <p>Meu amor,</p>
+                <p>Criar este pequeno espaço foi a forma que encontrei de eternizar o que sinto por ti. Procurei em todas as línguas, cantos e dialetos deste planeta, mas nenhuma palavra inventada pelo ser humano é capaz de descrever o tamanho do meu amor.</p>
+                <p>Seja perto ou longe, em qualquer fuso horário ou realidade paralela, tu és a minha paz e a minha certeza. Guardei aqui pedacinhos de carinho do mundo inteiro só para te lembrar disso.</p>
+                <p class="text-right font-cinzel font-bold text-pink-300 pt-2">Com todo o meu amor ❤️</p>
             </div>
-        </section>
+        </div>
 
-        <!-- Footer -->
-        <footer class="mt-20 text-center border-t border-slate-800/80 pt-8 pb-12 w-full max-w-4xl">
-            <div class="flex items-center justify-center space-x-2 text-roseGold mb-2">
-                <i data-lucide="heart" class="w-4 h-4 fill-roseGold"></i>
-                <span class="font-serif italic text-sm sm:text-base">Feito com amor infinito</span>
-                <i data-lucide="heart" class="w-4 h-4 fill-roseGold"></i>
-            </div>
-            <p class="text-xs text-slate-500">
-                Toque no cartão NFC sempre que quiser lembrar o quanto você é especial.
-            </p>
-        </footer>
+        <!-- Barra de Pesquisa -->
+        <div class="w-full relative">
+            <input type="text" id="searchInput" placeholder="Pesquise por idioma, continente ou palavra..." 
+                class="w-full bg-black/40 border border-pink-500/20 rounded-xl px-4 py-3 text-sm text-pink-100 placeholder-pink-400/50 focus:outline-none focus:border-pink-500 transition-all shadow-inner"
+                oninput="filtrarIdiomas()">
+        </div>
 
-    </main>
+        <!-- Filtros por Continente -->
+        <div class="w-full flex gap-2 overflow-x-auto pb-2 scrollbar-none text-xs">
+            <button onclick="filtrarContinente('todos')" id="btn-todos" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30">✨ Todos (<span id="count-todos">0</span>)</button>
+            <button onclick="filtrarContinente('Europa')" id="btn-Europa" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">🏰 Europa</button>
+            <button onclick="filtrarContinente('Américas')" id="btn-Américas" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">🌴 Américas</button>
+            <button onclick="filtrarContinente('Ásia')" id="btn-Ásia" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">⛩️ Ásia</button>
+            <button onclick="filtrarContinente('África')" id="btn-África" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">🌍 África</button>
+            <button onclick="filtrarContinente('Oceania')" id="btn-Oceania" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">🏝️ Oceania</button>
+            <button onclick="filtrarContinente('Fictícios')" id="btn-Fictícios" class="px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20">🚀 Geek</button>
+        </div>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 bg-slate-800/90 text-white border border-pink-500/40 px-5 py-3 rounded-xl shadow-2xl backdrop-blur-md flex items-center space-x-3 transition-all duration-300 z-50 pointer-events-none">
-        <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
-        <span id="toast-message" class="text-sm font-medium">Tradução copiada!</span>
+        <!-- Lista de Cartões de Idiomas -->
+        <div id="lista-idiomas" class="w-full space-y-3 max-h-[450px] overflow-y-auto pr-1">
+            <!-- Os cartões serão injetados via JavaScript -->
+        </div>
+
     </div>
 
-    <!-- JavaScript logic -->
-    <script>
-        // Database of 100+ languages
-        const loveDatabase = [
-            // Europa
-            { lang: "Português", region: "Américas", flag: "🇧🇷", phrase: "Eu te amo", phonetic: "Eh-oo che-ah-moh", code: "pt-BR" },
-            { lang: "Espanhol", region: "Europa", flag: "🇪🇸", phrase: "Te amo", phonetic: "Teh ah-moh", code: "es-ES" },
-            { lang: "Francês", region: "Europa", flag: "🇫🇷", phrase: "Je t'aime", phonetic: "Zhuh tem", code: "fr-FR" },
-            { lang: "Italiano", region: "Europa", flag: "🇮🇹", phrase: "Ti amo", phonetic: "Tee ah-moh", code: "it-IT" },
-            { lang: "Alemão", region: "Europa", flag: "🇩🇪", phrase: "Ich liebe dich", phonetic: "Ish lee-buh dish", code: "de-DE" },
-            { lang: "Inglês", region: "Europa", flag: "🇬🇧", phrase: "I love you", phonetic: "Ai lov yu", code: "en-US" },
-            { lang: "Russo", region: "Europa", flag: "🇷🇺", phrase: "Я тебя люблю", phonetic: "Ya tebya lyublyu", code: "ru-RU" },
-            { lang: "Grego", region: "Europa", flag: "🇬🇷", phrase: "Σ' αγαπώ", phonetic: "S'agapo", code: "el-GR" },
-            { lang: "Holandês", region: "Europa", flag: "🇳🇱", phrase: "Ik hou van jou", phonetic: "Ik how van yow", code: "nl-NL" },
-            { lang: "Polonês", region: "Europa", flag: "🇵🇱", phrase: "Kocham cię", phonetic: "Ko-kham chye", code: "pl-PL" },
-            { lang: "Sueco", region: "Europa", flag: "🇸🇪", phrase: "Jag älskar dig", phonetic: "Yag els-kar dey", code: "sv-SE" },
-            { lang: "Norueguês", region: "Europa", flag: "🇳🇴", phrase: "Jeg elsker deg", phonetic: "Yai els-ker dai", code: "no-NO" },
-            { lang: "Dinamarquês", region: "Europa", flag: "🇩🇰", phrase: "Jeg elsker dig", phonetic: "Yai els-ker dai", code: "da-DK" },
-            { lang: "Finlandês", region: "Europa", flag: "🇫🇮", phrase: "Minä rakastan sinua", phonetic: "Mee-na ra-kas-tan see-noo-a", code: "fi-FI" },
-            { lang: "Ucraniano", region: "Europa", flag: "🇺🇦", phrase: "Я тебе кохаю", phonetic: "Ya tebe kohayu", code: "uk-UA" },
-            { lang: "Tcheco", region: "Europa", flag: "🇨🇿", phrase: "Miluji tě", phonetic: "Mee-loo-yee tyeh", code: "cs-CZ" },
-            { lang: "Húngaro", region: "Europa", flag: "🇭🇺", phrase: "Szeretlek", phonetic: "Se-ret-lek", code: "hu-HU" },
-            { lang: "Romeno", region: "Europa", flag: "🇷🇴", phrase: "Te iubesc", phonetic: "Teh yoo-besk", code: "ro-RO" },
-            { lang: "Croata", region: "Europa", flag: "🇭🇷", phrase: "Volim te", phonetic: "Voh-leem teh", code: "hr-HR" },
-            { lang: "Sérvio", region: "Europa", flag: "🇷🇸", phrase: "Волим те", phonetic: "Volim te", code: "sr-RS" },
-            { lang: "Búlgaro", region: "Europa", flag: "🇧🇬", phrase: "Обичам те", phonetic: "Obicham te", code: "bg-BG" },
-            { lang: "Irlandês", region: "Europa", flag: "🇮🇪", phrase: "Is breá liom tú", phonetic: "Is bra lum too", code: "ga-IE" },
-            { lang: "Galês", region: "Europa", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", phrase: "Rwy'n dy garu di", phonetic: "Rwin duh gar-ee dee", code: "cy-GB" },
-            { lang: "Islandês", region: "Europa", flag: "🇮🇸", phrase: "Ég elska þig", phonetic: "Yeh els-ka thig", code: "is-IS" },
-            { lang: "Albanês", region: "Europa", flag: "🇦🇱", phrase: "Të dua", phonetic: "Tuh doo-ah", code: "sq-AL" },
-            { lang: "Catalão", region: "Europa", flag: "🇪🇸", phrase: "T'estimo", phonetic: "Test-ee-mo", code: "ca-ES" },
-            { lang: "Basco", region: "Europa", flag: "🇪🇸", phrase: "Maite zaitut", phonetic: "My-teh zy-toot", code: "eu-ES" },
-            { lang: "Galego", region: "Europa", flag: "🇪🇸", phrase: "Ámoteme", phonetic: "Ah-moh-teh-meh", code: "gl-ES" },
-            { lang: "Estoniano", region: "Europa", flag: "🇪🇪", phrase: "Ma armastan sind", phonetic: "Mah ar-mas-tan seend", code: "et-EE" },
-            { lang: "Letão", region: "Europa", flag: "🇱🇻", phrase: "Es tevi mīlu", phonetic: "Es teh-vee mee-loo", code: "lv-LV" },
-            { lang: "Lituano", region: "Europa", flag: "🇱🇹", phrase: "Aš tave myliu", phonetic: "Ash tah-veh mee-loo", code: "lt-LT" },
-            { lang: "Maltês", region: "Europa", flag: "🇲🇹", phrase: "Inħobbok", phonetic: "In-hob-bok", code: "mt-MT" },
-            { lang: "Eslovaco", region: "Europa", flag: "🇸🇰", phrase: "Ľúbim ťa", phonetic: "Loo-beem tyah", code: "sk-SK" },
-            { lang: "Esloveno", region: "Europa", flag: "🇸🇮", phrase: "Ljubim te", phonetic: "Loo-beem teh", code: "sl-SI" },
-            { lang: "Macedônio", region: "Europa", flag: "🇲🇰", phrase: "Те сакам", phonetic: "Te sakam", code: "mk-MK" },
-            { lang: "Bielorrusso", region: "Europa", flag: "🇧🇾", phrase: "Я цябе кахаю", phonetic: "Ya tyabe kakhayu", code: "be-BY" },
+    <!-- Rodapé -->
+    <footer class="mt-8 text-center text-xs text-pink-300/50 font-cinzel tracking-wider z-10">
+        Feito com amor infinito ❤️
+    </footer>
 
-            // Ásia
-            { lang: "Japonês", region: "Ásia", flag: "🇯🇵", phrase: "愛してる", phonetic: "Aishiteru", code: "ja-JP" },
-            { lang: "Coreano", region: "Ásia", flag: "🇰🇷", phrase: "사랑해", phonetic: "Saranghae", code: "ko-KR" },
-            { lang: "Chinês Mandarim", region: "Ásia", flag: "🇨🇳", phrase: "我爱你", phonetic: "Wǒ ài nǐ", code: "zh-CN" },
-            { lang: "Cantonês", region: "Ásia", flag: "🇭🇰", phrase: "我愛你", phonetic: "Ngo oi nei", code: "zh-HK" },
-            { lang: "Hindi", region: "Ásia", flag: "🇮🇳", phrase: "मैं तुमसे प्यार करता हूँ", phonetic: "Main tumse pyar karta hoon", code: "hi-IN" },
-            { lang: "Árabe", region: "Ásia", flag: "🇸🇦", phrase: "أحبك", phonetic: "Ana uhibbuk", code: "ar-SA" },
-            { lang: "Hebraico", region: "Ásia", flag: "🇮🇱", phrase: "אני אוהב אותך", phonetic: "Ani ohev otach", code: "he-IL" },
-            { lang: "Turco", region: "Ásia", flag: "🇹🇷", phrase: "Seni seviyorum", phonetic: "Seh-nee seh-vee-yoh-room", code: "tr-TR" },
-            { lang: "Vietnamita", region: "Ásia", flag: "🇻🇳", phrase: "Anh yêu em", phonetic: "Anh yew em", code: "vi-VN" },
-            { lang: "Tailandês", region: "Ásia", flag: "🇹🇭", phrase: "ฉันรักคุณ", phonetic: "Chan rak khun", code: "th-TH" },
-            { lang: "Filipino (Tagalo)", region: "Ásia", flag: "🇵🇭", phrase: "Mahal kita", phonetic: "Mah-hal kee-tah", code: "fil-PH" },
-            { lang: "Indonésio", region: "Ásia", flag: "🇮🇩", phrase: "Aku cinta kamu", phonetic: "Ah-koo chin-tah kah-moo", code: "id-ID" },
-            { lang: "Malaio", region: "Ásia", flag: "🇲🇾", phrase: "Saya sayang kamu", phonetic: "Sah-yah sah-yang kah-moo", code: "ms-MY" },
-            { lang: "Bengali", region: "Ásia", flag: "🇧🇩", phrase: "আমি তোমাকে ভালোবাসি", phonetic: "Ami tomake bhalobashi", code: "bn-BD" },
-            { lang: "Persa (Farsi)", region: "Ásia", flag: "🇮🇷", phrase: "دوستت دارم", phonetic: "Doos-tat dah-ram", code: "fa-IR" },
-            { lang: "Urdu", region: "Ásia", flag: "🇵🇰", phrase: "میں آپ سے محبت کرتا ہوں", phonetic: "Main aap say muhabbat karta hoon", code: "ur-PK" },
-            { lang: "Tâmil", region: "Ásia", flag: "🇮🇳", phrase: "நான் உன்னை காதலிக்கிறேன்", phonetic: "Naan unnai kaadhalikiren", code: "ta-IN" },
-            { lang: "Teloogo", region: "Ásia", flag: "🇮🇳", phrase: "நான் உன்னை நேசிக்கிறேன்", phonetic: "Nenu ninnu premistunnanu", code: "te-IN" },
-            { lang: "Cazaque", region: "Ásia", flag: "🇰🇿", phrase: "МЕН СЕНИ СҮЙЕМІН", phonetic: "Men seni suyemin", code: "kk-KZ" },
-            { lang: "Mongol", region: "Ásia", flag: "🇲🇳", phrase: "Би чамд хайртай", phonetic: "Bi chamd khairtai", code: "mn-MN" },
-            { lang: "Clemere (Camboja)", region:
+    <script>
+        const dadosIdiomas = [
+            { idioma: "Português", frase: "Eu Te Amo", fonetica: "[ew te ˈɐmu]", continente: "Américas", bandeira: "🇧🇷", lang: "pt-BR" },
+            { idioma: "Inglês", frase: "I Love You", fonetica: "[aj lʌv ju]", continente: "Europa", bandeira: "🇬🇧", lang: "en-US" },
+            { idioma: "Espanhol", frase: "Te Quiero / Te Amo", fonetica: "[te kjeɾo]", continente: "Américas", bandeira: "🇪🇸", lang: "es-ES" },
+            { idioma: "Francês", frase: "Je T'aime", fonetica: "[ʒə tɛm]", continente: "Europa", bandeira: "🇫🇷", lang: "fr-FR" },
+            { idioma: "Italiano", frase: "Ti Amo", fonetica: "[ti ˈaːmo]", continente: "Europa", bandeira: "🇮🇹", lang: "it-IT" },
+            { idioma: "Alemão", frase: "Ich Liebe Dich", fonetica: "[ɪç ˈliːbə dɪç]", continente: "Europa", bandeira: "🇩🇪", lang: "de-DE" },
+            { idioma: "Japonês", frase: "愛してる (Aishiteru)", fonetica: "[aiɕiteɾu]", continente: "Ásia", bandeira: "🇯🇵", lang: "ja-JP" },
+            { idioma: "Coreano", frase: "사랑해 (Saranghae)", fonetica: "[saɾanghae]", continente: "Ásia", bandeira: "🇰🇷", lang: "ko-KR" },
+            { idioma: "Mandarim", frase: "我爱你 (Wǒ ài nǐ)", fonetica: "[wò âɪ nì]", continente: "Ásia", bandeira: "🇨🇳", lang: "zh-CN" },
+            { idioma: "Russo", frase: "Я тебя люблю", fonetica: "[ja tʲɪˈbʲa lʲʊˈblʲu]", continente: "Europa", bandeira: "🇷🇺", lang: "ru-RU" },
+            { idioma: "Árabe", frase: "أحبك (Uhibbuka)", fonetica: "[ʔu.hib.bu.ka]", continente: "Ásia", bandeira: "🇸🇦", lang: "ar-SA" },
+            { idioma: "Grego", frase: "Σ' αγapoύv (S' agapó)", fonetica: "[s aɣaˈpo]", continente: "Europa", bandeira: "🇬🇷", lang: "el-GR" },
+            { idioma: "Hindi", frase: "मैं तुमसे the प्यार کرتا हूँ", fonetica: "[mɛ̃ tʊm.sɛ pjaːɾ kəɾ.tə hũː]", continente: "Ásia", bandeira: "🇮🇳", lang: "hi-IN" },
+            { idioma: "Turco", frase: "Seni Seviyorum", fonetica: "[seˈni se.viˈjo.rum]", continente: "Europa", bandeira: "🇹🇷", lang: "tr-TR" },
+            { idioma: "Holandês", frase: "Ik Hou Van Jou", fonetica: "[ɪk ɦʌu vɑn jʌu]", continente: "Europa", bandeira: "🇳🇱", lang: "nl-NL" },
+            { idioma: "Sueco", frase: "Jag Älskar Dig", fonetica: "[jɑːɡ ˈɛlskar deɪ]", continente: "Europa", bandeira: "🇸🇪", lang: "sv-SE" },
+            { idioma: "Polonês", frase: "Kocham Cię", fonetica: "[ˈkɔxam t͡ɕɛ]", continente: "Europa", bandeira: "🇵🇱", lang: "pl-PL" },
+            { idioma: "Vietnamita", frase: "Anh Yêu Em", fonetica: "[ajŋ jew ɛm]", continente: "Ásia", bandeira: "🇻🇳", lang: "vi-VN" },
+            { idioma: "Tailandês", frase: "ฉันรักคุณ (Chan rak khun)", fonetica: "[t͡ɕʰǎn rak kʰun]", continente: "Ásia", bandeira: "🇹🇭", lang: "th-TH" },
+            { idioma: "Hebraico", frase: "אני אוהב אותך (Ani ohev otakh)", fonetica: "[aˈni oˈhev oˈtaχ]", continente: "Ásia", bandeira: "🇮🇱", lang: "he-IL" },
+            { idioma: "Latim", frase: "Te Amo", fonetica: "[te ˈaːmo]", continente: "Europa", bandeira: "🏛️", lang: "la" },
+            { idioma: "Esperanto", frase: "Mi Amat Vin", fonetica: "[mi aˈmat vin]", continente: "Europa", bandeira: "⭐", lang: "eo" },
+            { idioma: "Gaélico Escocês", frase: "Tha Gràdh Orm Ort", fonetica: "[ha ɣɾaːv ɔɾst]", continente: "Europa", bandeira: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", lang: "gd" },
+            { idioma: "Finlandês", frase: "Minä Rakastan Sinua", fonetica: "[ˈminæ ˈrɑkɑstɑn ˈsinuɑ]", continente: "Europa", bandeira: "🇫🇮", lang: "fi-FI" },
+            { idioma: "Dinamarquês", frase: "Jeg Elsker Dig", fonetica: "[jɑw ˈelsɡ̊ɐ ðaj]", continente: "Europa", bandeira: "🇩🇰", lang: "da-DK" },
+            { idioma: "Norueguês", frase: "Jeg Elsker Deg", fonetica: "[jɛi ˈɛls.kəɾ dæi]", continente: "Europa", bandeira: "🇳🇴", lang: "no-NO" },
+            { idioma: "Húngaro", frase: "Szeretlek", fonetica: "[ˈsɛrɛtlɛk]", continente: "Europa", bandeira: "🇭🇺", lang: "hu-HU" },
+            { idioma: "Tcheco", frase: "Miluji Tě", fonetica: "[ˈmilʊjɪ cɛ]", continente: "Europa", bandeira: "🇨🇿", lang: "cs-CZ" },
+            { idioma: "Romênu", frase: "Te Iubesc", fonetica: "[te juˈbesk]", continente: "Europa", bandeira: "🇷🇴", lang: "ro-RO" },
+            { idioma: "Ucraniano", frase: "Я тебе кохаю", fonetica: "[ja teˈbɛ koˈxaju]", continente: "Europa", bandeira: "🇺🇦", lang: "uk-UA" },
+            { idioma: "Indonésio", frase: "Aku Cinta Kamu", fonetica: "[a.ku t͡ʃin.ta ka.mu]", continente: "Ásia", bandeira: "🇮🇩", lang: "id-ID" },
+            { idioma: "Tagalo (Filipino)", frase: "Mahal Kita", fonetica: "[maˈhal kiˈta]", continente: "Ásia", bandeira: "🇵🇭", lang: "tl" },
+            { idioma: "Hindi / Urdu", frase: "Main Tumse Pyar Karta Hoon", fonetica: "[mɛ̃ tʊm.se pjaːɾ]", continente: "Ásia", bandeira: "🇵🇰", lang: "ur" },
+            { idioma: "Persa (Farsi)", frase: "دوستت دارم (Doostet Daram)", fonetica: "[duːstæt dɒɾæm]", continente: "Ásia", bandeira: "🇮🇷", lang: "fa-IR" },
+            { idioma: "Suaíli", frase: "Nakupenda", fonetica: "[nɑkuˈpɛndɑ]", continente: "África", bandeira: "🇰🇪", lang: "sw" },
+            { idioma: "Zulu", frase: "Ngiyakuthanda", fonetica: "[ŋi.ja.ku.ˈtʰaːn.da]", continente: "África", bandeira: "🇿🇦", lang: "zu" },
+            { idioma: "Africâner", frase: "Ek Het Jou Lief", fonetica: "[ɛk hɛt jɔu lif]", continente: "África", bandeira: "🇿🇦", lang: "af" },
+            { idioma: "Mauri", frase: "Kei Te Aroha Au Ki A Koe", fonetica: "[kei te aˈɾɔha au]", continente: "Oceania", bandeira: "🇳🇿", lang: "mi" },
+            { idioma: "Havaiano", frase: "Aloha Au Ia ʻOe", fonetica: "[aˈlo.ha au ja ˈo.e]", continente: "Oceania", bandeira: "🌺", lang: "haw" },
+            { idioma: "Quíchua", frase: "Munakuyki", fonetica: "[munaˈkujki]", continente: "Américas", bandeira: "🏔️", lang: "qu" },
+            { idioma: "Guarani", frase: "Rohayhu", fonetica: "[ɾo.haj.hu]", continente: "Américas", bandeira: "🇵🇾", lang: "gn" },
+            { idioma: "Valiriano (Game of Thrones)", frase: "Ñuha Bylse Se Ossēni", fonetica: "[ˈɲu.ha ˈbyl.se]", continente: "Fictícios", bandeira: "🐉", lang: "val" },
+            { idioma: "Quenya (Élfico - Tolkien)", frase: "Melin Tye", fonetica: "[ˈmelin ˈtye]", continente: "Fictícios", bandeira: "🧝", lang: "qya" },
+            { idioma: "Klingon (Star Trek)", frase: "qategh", fonetica: "[qɑ.tɛɣ]", continente: "Fictícios", bandeira: "🖖", lang: "tlh" },
+            { idioma: "Na'vi (Avatar)", frase: "Oeri Nga Yawne", fonetica: "[ˈo.e.ɾi ŋa ˈjaw.ne]", continente: "Fictícios", bandeira: "🌿", lang: "nv" }
+        ];
+
+        let continenteAtual = 'todos';
+
+        function renderizarIdiomas(filtro = '') {
+            const lista = document.getElementById('lista-idiomas');
+            lista.innerHTML = '';
+
+            const filtrados = dadosIdiomas.filter(item => {
+                const matchContinente = continenteAtual === 'todos' || item.continente === continenteAtual;
+                const matchTexto = item.idioma.toLowerCase().includes(filtro.toLowerCase()) || 
+                                   item.frase.toLowerCase().includes(filtro.toLowerCase()) ||
+                                   item.continente.toLowerCase().includes(filtro.toLowerCase());
+                return matchContinente && matchTexto;
+            });
+
+            document.getElementById('count-todos').innerText = dadosIdiomas.length;
+
+            if (filtrados.length === 0) {
+                lista.innerHTML = `<div class="text-center py-8 text-pink-300/50 text-xs">Nenhum idioma encontrado com esse termo... 💔</div>`;
+                return;
+            }
+
+            filtrados.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = "glass rounded-xl p-3.5 flex items-center justify-between border border-pink-500/15 hover:border-pink-500/40 transition-all shadow-md group";
+                div.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl">${item.bandeira}</span>
+                        <div>
+                            <h3 class="font-cinzel font-bold text-sm text-pink-100 group-hover:text-pink-300 transition-colors">${item.idioma}</h3>
+                            <p class="text-xs font-semibold text-rose-300 mt-0.5">${item.frase}</p>
+                            <p class="text-[10px] text-pink-300/50 italic">${item.fonetica} • <span class="text-pink-400/70">${item.continente}</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1.5">
+                        <button onclick="falarTexto('${item.frase}', '${item.lang}')" class="p-2 rounded-lg bg-pink-500/10 hover:bg-pink-500/25 text-pink-300 transition-all text-xs" title="Ouvir pronúncia">
+                            🔊
+                        </button>
+                        <button onclick="copiarTexto('${item.frase} (${item.idioma})')" class="p-2 rounded-lg bg-pink-500/10 hover:bg-pink-500/25 text-pink-300 transition-all text-xs" title="Copiar frase">
+                            📋
+                        </button>
+                    </div>
+                `;
+                lista.appendChild(div);
+            });
+        }
+
+        function filtrarContinente(continente) {
+            continenteAtual = continente;
+            
+            // Atualizar estilos dos botões
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.className = "px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all glass text-pink-200 hover:bg-pink-500/20";
+            });
+            
+            const btnAtivo = document.getElementById(`btn-${continente}`);
+            if(btnAtivo) {
+                btnAtivo.className = "px-4 py-2 rounded-xl whitespace-nowrap font-medium transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30";
+            }
+
+            const termo = document.getElementById('searchInput').value;
+            renderizarIdiomas(termo);
+        }
+
+        function filtrarIdiomas() {
+            const termo = document.getElementById('searchInput').value;
+            renderizarIdiomas(termo);
+        }
+
+        function toggleCarta() {
+            const conteudo = document.getElementById('carta-conteudo');
+            const arrow = document.getElementById('arrow-icon');
+            conteudo.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+
+        function falarTexto(texto, lang) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                // Limpa caracteres especiais para a voz ler limpo
+                const textoLimpo = texto.replace(/\([^)]*\)/g, '').trim();
+                const utterance = new SpeechSynthesisUtterance(textoLimpo);
+                utterance.lang = lang.includes('-') ? lang : 'en-US';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("O seu navegador não suporta áudio por voz.");
+            }
+        }
+
+        function copiarTexto(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                // Feedback visual subtil
+                event.target.innerText = "✨";
+                setTimeout(() => { event.target.innerText = "📋"; }, 1000);
+            });
+        }
+
+        // Inicializar lista ao carregar
+        window.onload = () => {
+            renderizarIdiomas();
+        };
+    </script>
+</body>
+</html>
